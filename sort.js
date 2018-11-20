@@ -38,5 +38,60 @@ var bubble = function(a){
   }
 }
 
-//插入排序，
+//插入排序，需要一个临时数组，a[]
+var bubble = function(a){
+  if(a instanceof Array && a.length != 0){
+    let temp
+    if(a.length === 1) return a
+    for(i=0; i<a.length; i++){
+      for(j=0; j<a.length-i;j++){
+        if(a[j]>a[j+1]){
+          temp = a[j]
+          a[j] = a[j+1]
+          a[j+1] = temp
+        }
+      }
+    }
+    return a
+  }else{
+    console.log('input error')
+  }
+}
 
+var bubble = function(a){
+  if(a instanceof Array && a.length != 0){
+    let temp
+    if(a.length === 1) return a
+    for(i=0; i<a.length; i++){
+      for(j=0; j<a.length-i;j++){
+        if(a[j]>a[j+1]){
+          temp = a[j]
+          a[j] = a[j+1]
+          a[j+1] = temp
+        }
+      }
+    }
+    return a
+  }else{
+    console.log('input error')
+  }
+}
+
+var bubble = function(a){
+  if(a instanceof Array && a.length != 0){
+    let temp
+    if(a.length === 1) return a
+    for(i=0; i<a.length; i++){
+      for(j=0; j<a.length-i;j++){
+        if(a[j]>a[j+1]){
+          temp = a[j]
+          a[j] = a[j+1]
+          a[j+1] = temp
+        }
+      }
+    }
+    return a
+  }else{
+    console.log('input error')
+  }
+}
