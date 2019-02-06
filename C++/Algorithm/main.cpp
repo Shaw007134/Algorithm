@@ -29,7 +29,7 @@ int __partition(T arr[], int l, int r)
 }
 
 template <typename T>
-void __partition2(T arr[], int l, int r)
+int __partition2(T arr[], int l, int r)
 {
 	swap(arr[l], arr[rand() % (r - l + 1) + l]);
 	T v = arr[l];
@@ -52,6 +52,7 @@ void __partition2(T arr[], int l, int r)
 	return j;
 }
 
+template <typename T>
 void __quickSort3Ways(T arr[], int l, int r)
 {
 	if (r - l <= 15)
@@ -65,14 +66,14 @@ void __quickSort3Ways(T arr[], int l, int r)
 
 	int lt = l;			// arr[l+1...lt] < v
 	int gt = r + 1; // arr[gt...r] > v
-	int i = l + 1;	// arr[lt+1...i] == v
+	int i = l + 1;	// arr[lt+1...i) == v
 	while (i < gt)
 	{
 		if (arr[i] < v)
 		{
 			swap(arr[i], arr[lt + 1]);
-			lt++ ；
-            i++;
+			lt++;
+			i++;
 		}
 		else if (arr[i] > v)
 		{
@@ -81,7 +82,7 @@ void __quickSort3Ways(T arr[], int l, int r)
 		}
 		else
 		{ //arr[i] == v
-			i++
+			i++;
 		}
 	}
 	swap(arr[l], arr[lt]);
@@ -98,7 +99,7 @@ void __quickSort(T arr[], int l, int r)
 	if (r - l <= 15)
 	{
 		insertionSort(arr, l, r);
-		return
+		return;
 	}
 	int p = __partition2(arr, l, r);
 	__quickSort(arr, l, p - 1);
@@ -123,21 +124,22 @@ int main()
 	SortTestHelper::testSort("Merge Sort", mergeSort, arr1, n);
 	SortTestHelper::testSort("Quick Sort", quickSort, arr2, n);
 
-	delete[] arr1;
-	delete[] arr2;
-	cout << endl;
-	// int swapTimes = 10;
-	// assert(swapTimes >= 0);
-
-	// cout << "Test for nearly ordered array, size = " << n << ", swap time = " << swapTimes << endl;
-	// arr1 = SortTestHelper::generateNearlyOrderedArray(n, swapTimes);
-	// arr2 = SortTestHelper::copyIntArray(arr1, n);
-
-	// SortTestHelper::testSort("Insertion Sort", insertionSort, arr1, n);
-	// SortTestHelper::testSort("Merge Sort", mergeSort, arr2, n);
-
 	// delete[] arr1;
 	// delete[] arr2;
+
+	cout << endl;
+	int swapTimes = 10;
+	assert(swapTimes >= 0);
+
+	cout << "Test for nearly ordered array, size = " << n << ", swap time = " << swapTimes << endl;
+	arr1 = SortTestHelper::generateNearlyOrderedArray(n, swapTimes);
+	arr2 = SortTestHelper::copyIntArray(arr1, n);
+
+	SortTestHelper::testSort("Merge Sort", mergeSort, arr1, n);
+	SortTestHelper::testSort("Quick Sort", quickSort, arr2, n);
+
+	delete[] arr1;
+	delete[] arr2;
 
 	return 0;
 }
