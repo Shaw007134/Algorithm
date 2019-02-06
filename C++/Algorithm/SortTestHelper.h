@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <ctime>
 #include <cassert>
 using namespace std;
@@ -55,16 +56,18 @@ void testSort(string sortName, void (*sort)(T[], int), T arr[], int n)
   clock_t startTime = clock();
   sort(arr, n);
   clock_t endTime = clock();
-
-  assert(isSorted(arr, n));
   cout << sortName << " : " << double(endTime - startTime) / CLOCKS_PER_SEC << " s" << endl;
+  assert(isSorted(arr, n));
   return;
 }
 
 int *copyIntArray(int a[], int n)
 {
   int *arr = new int[n];
-  copy(a, a + n, arr);
+  for (int i = 0; i < n; i++)
+  {
+    arr[i] = a[i];
+  }
   return arr;
 }
 } // namespace SortTestHelper
