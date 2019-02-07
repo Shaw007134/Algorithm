@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - LinkedListStack",
+      "request": "launch",
+      "mainClass": "LinkedListStack",
+      "projectName": "Stack"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - Solution",
       "request": "launch",
       "mainClass": "Solution",
