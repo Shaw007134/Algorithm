@@ -4,9 +4,7 @@ function selectionSort(arr, n) {
     for (let j = i; j < n; j++) {
       if (arr[j] < arr[i]) minIndex = j;
     }
-    let temp = arr[i];
-    arr[i] = arr[minIndex];
-    arr[minIndex] = temp;
+    swap(arr, i, minIndex);
   }
   console.log(arr);
 }
@@ -30,9 +28,7 @@ function bubbleSort(arr, n) {
     for (var i = 1; i < n; i++) {
       if (arr[i] < arr[i - 1]) {
         swaped = true;
-        var temp = arr[i];
-        arr[i] = arr[i - 1];
-        arr[i - 1] = temp;
+        swap(arr, i, i - 1);
       }
     }
     n = n - 1;
@@ -43,7 +39,7 @@ function bubbleSort(arr, n) {
 function shellSort(arr, n) {
   // h = 1, 4, 7, 10, 13
   var h = 1;
-  if (h < n / 3) {
+  while (h < n / 3) {
     h = 3 * h + 1;
   }
   while (h >= 1) {
