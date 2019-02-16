@@ -56,4 +56,7 @@
 
 # sed -n '10p' file.txt
 
-head -10 file.txt | tail -1
+tail -n+10 file.txt | head -1
+# head -10 file.txt | tail -1
+
+# awk 'NR == 10 {print; exit}' file.txt
