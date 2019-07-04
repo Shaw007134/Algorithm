@@ -53,20 +53,10 @@
  * @return {string}
  */
 var convertToTitle = function(n) {
-  var obj = {};
-  for (var i = 1; i <= 26; i++) {
-    obj[i] = String.fromCharCode(i + 64);
-  }
-  obj[0] = "Z";
-  var ret = [];
-  if (n <= 26) return obj[n];
-  while (n > 26) {
-    var res = n % 26;
-    ret.push(obj[res]);
-    n = parseInt((n - 1) / 26);
-  }
-  ret.push(obj[n]);
-  return ret.reverse().join("");
+  var temp = parseInt(n / 26);
+  if (temp <= 1) return temp.charAt();
+  while (n % 26 > 0) {}
 };
-
-console.log(convertToTitle(26*2));
+var test = 20;
+console.log('A'.charCodeAt())
+console.log(parseInt(27, 26));

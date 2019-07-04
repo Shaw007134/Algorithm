@@ -43,20 +43,4 @@
 # 
 #
 # Read from the file file.txt and output the tenth line to stdout.
-# i = 1;
-# for line in $(cat file.txt)
-# do
-#   if [[$i == 10]]
-#   then
-#     echo $line;
-#     break;
-#   fi
-#   i = $(($i + 1))
-# done
 
-# sed -n '10p' file.txt
-
-tail -n+10 file.txt | head -1
-# head -10 file.txt | tail -1
-
-# awk 'NR == 10 {print; exit}' file.txt

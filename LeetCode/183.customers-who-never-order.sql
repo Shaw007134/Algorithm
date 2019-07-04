@@ -52,7 +52,4 @@
 -- 
 --
 # Write your MySQL query statement below
-SELECT t1.Name as Customers FROM Customers as t1 LEFT JOIN Orders as t2 ON t1.Id = t2.CustomerId WHERE t2.CustomerId is null
 
--- SELECT t1.Name as Customers FROM Customers as t1 
--- WHERE (SELECT count(1) as num FROM Orders as t2 WHERE t2.CustomerId = t1.Id) = 0

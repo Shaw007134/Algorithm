@@ -39,31 +39,4 @@
 # 
 #
 # Read from the file file.txt and output all valid phone numbers to stdout.
-while read line
-do
-  if [[ $line =~ ^[0-9]{3}'-'[0-9]{3}'-'[0-9]{4}$|^'('[0-9]{3}') '[0-9]{3}'-'[0-9]{4}$ ]]
-  then  
-    echo $line;
-  fi
-done<file.txt
 
-# while true
-# do
-#     read            #read line into var: $REPLY (Bash feature)
-#     #when to terminate
-#     if [ ${#REPLY} -eq 0 ]
-#     then
-#         break;
-#     fi
-#     #check if valid
-#     case $REPLY in
-#         #for case: xxx-xxx-xxxx
-#         [0-9][0-9][0-9]'-'[0-9][0-9][0-9]'-'[0-9][0-9][0-9][0-9] )
-#             echo $REPLY
-#             ;;
-#         #for case: (xxx) xxx-xxxx
-#         '('[0-9][0-9][0-9]') '[0-9][0-9][0-9]'-'[0-9][0-9][0-9][0-9] )
-#             echo $REPLY
-#             ;;
-#     esac
-# done<file.txt        #redirection 'file.txt' to stdin

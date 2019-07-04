@@ -42,6 +42,8 @@ var twoSum = function(numbers, target) {
   var temp = [];
   for (var i = 0; i < numbers.length; i++) {
     var cur = target - numbers[i];
+    if (target < 0 && cur > 0) break;
+    if (target > 0 && cur < 0) break;
     temp.push(cur);
   }
   console.log(temp);

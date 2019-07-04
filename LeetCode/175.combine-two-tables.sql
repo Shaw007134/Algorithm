@@ -50,5 +50,4 @@
 -- 
 --
 # Write your MySQL query statement below
-SELECT t1.FirstName, t1.LastName, t2.City, t2.State FROM Person as t1 LEFT JOIN Address as t2 ON t1.PersonId = t2.PersonId
--- SELECT FirstName, LastName FROM Person as t1 UNION SELECT City, State FROM Address as t2
+

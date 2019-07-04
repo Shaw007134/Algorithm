@@ -52,21 +52,4 @@
  * @param {string} s
  * @return {number}
  */
-var titleToNumber = function(s) {
-  var obj = {};
-  for (var i = 1; i <= 26; i++) {
-    var char = String.fromCharCode(i + 64);
-    obj[char] = i;
-  }
-
-  var len = s.length;
-  var cur = len - 1;
-  var ret = 0;
-  while (cur >= 0) {
-    ret += obj[s[cur]] * Math.pow(26, len - 1 - cur);
-    cur--;
-  }
-  console.log(ret);
-  return ret;
-};
-titleToNumber("Z");
+var titleToNumber = function(s) {};

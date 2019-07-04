@@ -25,24 +25,34 @@
  * @param {number} n
  * @return {number}
  */
-var countPrimes = function(n) {
-  if (n === 0) return 0;
-  if (n === 1) return 1;
-  if (n < 4) return 2;
-  var temp = {};
-  if (temp[n - 1] == null) {
-    temp[n - 1] = countPrimes(n - 1);
-  }
-  console.log(temp);
-  if (isPrimes(n)) return 1 + temp[n - 1];
-  else return temp[n - 1];
 
-  function isPrimes(n) {
-    for (var i = 2; i < n - 1; i++) {
-      if (n % i === 0) return false;
-    }
-    return true;
+var isPrimes = function(n) {
+  for (var j = 2; j < Math.sqrt(n); j++) {
+    if (n % j === 0) return false;
   }
+  return true;
+};
+
+var countPrimes = function(n) {
+  if (n < 3) return 0;
+  var res = [];
+  for (var i = 0; i < n; i++) {
+    res[i] = 1;
+  }
+  for (var i = 2; i < n; i++) {
+    if (res[i] !== 0 && isPrimes(i)) {
+      for (var j = 2; j * i < n; j++) {
+        res[j * i] = 0;
+      }
+    }
+  }
+  var count = 0;
+  for (var i = 2; i < n; i++) {
+    if (res[i] === 1) count++;
+  }
+  console.log(count);
+  console.log(res);
+  return count;
 };
 
 countPrimes(10);

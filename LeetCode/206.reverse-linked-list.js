@@ -12,19 +12,19 @@
  * Testcase Example:  '[1,2,3,4,5]'
  *
  * Reverse a singly linked list.
- * 
+ *
  * Example:
- * 
- * 
+ *
+ *
  * Input: 1->2->3->4->5->NULL
  * Output: 5->4->3->2->1->NULL
- * 
- * 
+ *
+ *
  * Follow up:
- * 
+ *
  * A linked list can be reversed either iteratively or recursively. Could you
  * implement both?
- * 
+ *
  */
 /**
  * Definition for singly-linked list.
@@ -37,7 +37,22 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-    
-};
 
+// function ListNode(val) {
+//   this.val = val;
+//   this.next = null;
+// }
+
+var reverseList = function(head) {
+  if (head == null || head.next === null) return head;
+  var res = new ListNode();
+  while (head.next !== null) {
+    var temp = new ListNode();
+    temp.val = head.val;
+    temp.next = res.next;
+    res.next = temp;
+    head = head.next;
+  }
+  res.val = head.val;
+  return res;
+};
